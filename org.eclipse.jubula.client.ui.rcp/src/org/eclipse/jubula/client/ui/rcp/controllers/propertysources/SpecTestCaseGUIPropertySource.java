@@ -76,7 +76,7 @@ public class SpecTestCaseGUIPropertySource
     public static final String P_ELEMENT_DISPLAY_PARAM_LOCKED = 
         Messages.SpecTestCaseGUIPropertySourceLockedParameters;
 
-    /** Constant for the String Excel Data File */
+    /** Constant for the String External Data File */
     public static final String P_ELEMENT_DISPLAY_DATEFILE = 
         Messages.SpecTestCaseGUIPropertySourceTestCaseFileName;
 
@@ -341,9 +341,9 @@ public class SpecTestCaseGUIPropertySource
         protected static final String DATA_SOURCE_CTDS = "TestDataSource.central"; //$NON-NLS-1$
 
         /**
-         * <code>DATA_SOURCE_EXCEL</code>
+         * <code>DATA_SOURCE_EXTERNAL</code>
          */
-        protected static final String DATA_SOURCE_EXCEL = "TestDataSource.excel"; //$NON-NLS-1$
+        protected static final String DATA_SOURCE_EXTERNAL = "TestDataSource.external"; //$NON-NLS-1$
 
         /**
          * <code>DATA_SOURCE_LOCAL</code>
@@ -374,7 +374,7 @@ public class SpecTestCaseGUIPropertySource
                 AbstractGuiNodePropertySource s) {
             super(s);
             getDataSource().add(DATA_SOURCE_LOCAL);
-            getDataSource().add(DATA_SOURCE_EXCEL);
+            getDataSource().add(DATA_SOURCE_EXTERNAL);
             getDataSource().add(DATA_SOURCE_CTDS);
             getDataSource().add(DATA_SOURCE_NONE);
             getDataSource().add(UNKOWN_DATA_SOURCE);
@@ -407,7 +407,7 @@ public class SpecTestCaseGUIPropertySource
          */
         protected String getDataSource(IParamNodePO node) {
             if (!StringUtils.isBlank(node.getDataFile())) {
-                return DATA_SOURCE_EXCEL;
+                return DATA_SOURCE_EXTERNAL;
             } else if (node.getReferencedDataCube() != null) {
                 return DATA_SOURCE_CTDS;
             } else if (node.getParameterListSize() == 0) {

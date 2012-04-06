@@ -131,8 +131,8 @@ public class IconConstants {
     public static final Image OVERWRITTEN_DATA_IMAGE = Plugin.getImage("overwrittenData.gif"); //$NON-NLS-1$
     /** complete data imageDescriptor */
     public static final ImageDescriptor ERROR_IMAGE_DESCRIPTOR = Plugin.getImageDescriptor("incomplData.gif"); //$NON-NLS-1$
-    /** excel data imageDescriptor */
-    public static final ImageDescriptor EXCEL_DATA_IMAGE_DESCRIPTOR = Plugin.getImageDescriptor("excelData.gif"); //$NON-NLS-1$
+    /** external data imageDescriptor */
+    public static final ImageDescriptor EXTERNAL_DATA_IMAGE_DESCRIPTOR = Plugin.getImageDescriptor("externalData.gif"); //$NON-NLS-1$
     /** greenDot imageDescriptor */
     public static final ImageDescriptor GREEN_DOT_IMAGE_DESCRIPTOR = Plugin.getImageDescriptor("greenDot.gif"); //$NON-NLS-1$
     /** redDot imageDescriptor */
@@ -145,9 +145,9 @@ public class IconConstants {
     public static final Image TECH_NAME_ERROR_IMAGE = Plugin.getImageDescriptor("techNameERR.gif").createImage(); //$NON-NLS-1$
     /** yellowDot imageDescriptor */
     public static final Image TECH_NAME_WARNING_IMAGE = Plugin.getImageDescriptor("techNameWARN.gif").createImage(); //$NON-NLS-1$
-    /** excel data image */
-    public static final Image EXCEL_DATA_IMAGE = 
-        EXCEL_DATA_IMAGE_DESCRIPTOR.createImage();
+    /** external data image */
+    public static final Image EXTERNAL_DATA_IMAGE = 
+        EXTERNAL_DATA_IMAGE_DESCRIPTOR.createImage();
     /** new event handler dialog-image */
     public static final Image NEW_EH_DIALOG_IMAGE = Plugin.getImage("newEventHandlerDialog.gif"); //$NON-NLS-1$
     /** name for class path image */

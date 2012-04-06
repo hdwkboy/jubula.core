@@ -20,9 +20,11 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
+import org.eclipse.jubula.client.core.businessprocess.importfilter.CSVImportFilter;
 import org.eclipse.jubula.client.core.businessprocess.importfilter.DataTable;
 import org.eclipse.jubula.client.core.businessprocess.importfilter.ExcelImportFilter;
 import org.eclipse.jubula.client.core.businessprocess.importfilter.IDataImportFilter;
+import org.eclipse.jubula.client.core.businessprocess.importfilter.PropertiesImportFilter;
 import org.eclipse.jubula.client.core.businessprocess.importfilter.exceptions.DataReadException;
 import org.eclipse.jubula.client.core.businessprocess.importfilter.exceptions.NoSupportForLocaleException;
 import org.eclipse.jubula.client.core.i18n.Messages;
@@ -83,6 +85,8 @@ public class ExternalTestDataBP {
     public ExternalTestDataBP() {
         m_filter = new ArrayList <IDataImportFilter> ();
         m_filter.add(new ExcelImportFilter());
+        m_filter.add(new PropertiesImportFilter());
+        m_filter.add(new CSVImportFilter());
     }
 
     /**

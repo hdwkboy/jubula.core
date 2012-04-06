@@ -79,7 +79,7 @@ public class ParameterValueLabelProvider extends LabelProvider
             }
             
             if (StringUtils.isNotEmpty(paramNode.getDataFile())) {
-                return IconConstants.EXCEL_DATA_IMAGE;
+                return IconConstants.EXTERNAL_DATA_IMAGE;
             }
             
             String property = controller.getProperty();

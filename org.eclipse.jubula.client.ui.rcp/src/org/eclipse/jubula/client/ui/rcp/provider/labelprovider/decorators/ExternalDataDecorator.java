@@ -30,7 +30,7 @@ public class ExternalDataDecorator extends AbstractLightweightLabelDecorator {
             IParamNodePO pnpo = (IParamNodePO)element;
             if (!StringUtils.isEmpty(pnpo.getDataFile())) {
                 decoration.addOverlay(
-                        IconConstants.EXCEL_DATA_IMAGE_DESCRIPTOR);
+                        IconConstants.EXTERNAL_DATA_IMAGE_DESCRIPTOR);
             } else if (pnpo.getReferencedDataCube() != null) {
                 decoration.addOverlay(
                         IconConstants.TDC_DECORATION_IMAGE_DESCRIPTOR);
