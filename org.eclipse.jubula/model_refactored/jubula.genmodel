@@ -5,7 +5,7 @@
     creationIcons="false" modelPluginID="org.eclipse.jubula" modelName="Jubula" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
     rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" reflectiveDelegation="true"
     testsDirectory="" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective"
-    complianceLevel="5.0" copyrightFields="false" language="" runtimePlatform="GWT">
+    complianceLevel="5.0" copyrightFields="false" language="" runtimePlatform="RCP">
   <foreignModel>jubula.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Jubula" basePackage="org.eclipse" disposableProviderFactory="true"
