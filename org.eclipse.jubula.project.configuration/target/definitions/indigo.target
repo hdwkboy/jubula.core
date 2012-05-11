@@ -23,7 +23,8 @@
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0" />
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.persistence.jpa.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.cdo.epp.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
 <unit id="javax.xml" version="0.0.0"/>
