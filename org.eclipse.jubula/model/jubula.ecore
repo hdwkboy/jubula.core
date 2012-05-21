@@ -82,6 +82,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HasReferencedTD" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="HbmCompNamesMap" upperBound="-1"
         eType="#//StringToCompNamesPairMap" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProjectGuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SpecTestCaseGuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecTestCase" eSuperTypes="#//TestCase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InterfaceLocked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
@@ -127,8 +129,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReusedProject" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestData" eSuperTypes="#//PersistentObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TestDataCategory" eSuperTypes="#//TestDataNode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TestDataCube" eSuperTypes="#//TestDataNode #//ModifiableParameterInterface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestDataCategory" eSuperTypes="#//TestDataNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HbmCategoryChildList" upperBound="-1"
+        eType="#//TestDataCategory" containment="true" eOpposite="#//TestDataCategory/Parent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HbmTestDataChildList" upperBound="-1"
+        eType="#//TestDataCube" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//TestDataCategory"
+        eOpposite="#//TestDataCategory/HbmCategoryChildList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestDataCube" eSuperTypes="#//TestDataNode #//ModifiableParameterInterface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//TestDataCategory"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsedToolkit" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestDataNode" abstract="true" interface="true"
       eSuperTypes="#//PersistentObject"/>
@@ -142,7 +158,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//EventExecTestCase"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EventExecTestCase" eSuperTypes="#//ExecTestCase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventExecTestCase" eSuperTypes="#//ExecTestCase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxRetries" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToCompNamesPairMap" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//CompNamesPair"/>
