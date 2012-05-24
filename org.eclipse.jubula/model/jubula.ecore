@@ -40,7 +40,7 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//Node"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParamNode" abstract="true" eSuperTypes="#//Node">
+  <eClassifiers xsi:type="ecore:EClass" name="ParamNode" abstract="true" eSuperTypes="#//Node #//ParameterInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterInterface" eType="#//TestDataCube"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefTestSuite" eSuperTypes="#//Node">
@@ -100,7 +100,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="CheckConf" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompIdentifier" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompNamesPair" eSuperTypes="#//PersistentObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSet" eSuperTypes="#//PersistentObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSet" eSuperTypes="#//PersistentObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="List" upperBound="-1" eType="#//TestData"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecObjCont" eSuperTypes="#//PersistentObject #//Wrapper"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMappingAssoziation" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMappingCategory" eSuperTypes="#//PersistentObject"/>
@@ -128,7 +135,13 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReusedProject" eSuperTypes="#//PersistentObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TestData" eSuperTypes="#//PersistentObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestData" eSuperTypes="#//PersistentObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Map" upperBound="-1" eType="#//StringToStringMap"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestDataCategory" eSuperTypes="#//TestDataNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="HbmCategoryChildList" upperBound="-1"
         eType="#//TestDataCategory" containment="true" eOpposite="#//TestDataCategory/Parent"/>
@@ -144,12 +157,25 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestDataCube" eSuperTypes="#//TestDataNode #//ModifiableParameterInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//TestDataCategory"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmDataFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HbmDataManager" lowerBound="1"
+        eType="#//TDManager" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HbmParameterList" upperBound="-1"
+        eType="#//ParamDescription" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HbmReferencedDataCube"
+        eType="#//ParameterInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsedToolkit" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestDataNode" abstract="true" interface="true"
       eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModifiableParameterInterface" abstract="true"
-      interface="true"/>
+      interface="true" eSuperTypes="#//ParameterInterface"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringToIntegerMap" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
@@ -165,5 +191,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringToCompNamesPairMap" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//CompNamesPair"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TDManager">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTable" upperBound="-1"
+        eType="#//DataSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterInterface" abstract="true"
+      interface="true" eSuperTypes="#//PersistentObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
