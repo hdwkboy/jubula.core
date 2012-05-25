@@ -39,7 +39,7 @@
       <eParameters name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//Node #//SpecPersistable"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParamNode" abstract="true" eSuperTypes="#//Node #//ParameterInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterInterface" eType="#//TestDataCube"/>
   </eClassifiers>
@@ -85,7 +85,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProjectGuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SpecTestCaseGuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SpecTestCase" eSuperTypes="#//TestCase">
+  <eClassifiers xsi:type="ecore:EClass" name="SpecTestCase" eSuperTypes="#//TestCase #//SpecPersistable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InterfaceLocked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMapping" eSuperTypes="#//Timestamp"/>
@@ -112,11 +112,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMappingAssoziation" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMappingCategory" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMappingProfile" eSuperTypes="#//PersistentObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParamDescription" abstract="true" eSuperTypes="#//PersistentObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParamDescription" abstract="true" eSuperTypes="#//PersistentObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapParamDescription" eSuperTypes="#//ParamDescription"/>
   <eClassifiers xsi:type="ecore:EClass" name="TcParamDescription" eSuperTypes="#//ParamDescription"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Wrapper" eSuperTypes="#//PersistentObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SpecObjCont" eSuperTypes="#//Wrapper"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Wrapper" eSuperTypes="#//PersistentObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecObjCont" eSuperTypes="#//Wrapper">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HbmSpecObjList" upperBound="-1"
+        eType="#//SpecPersistable" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectProperties" eSuperTypes="#//PersistentObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CheckConfCont" lowerBound="1"
         eType="#//CheckConfCont" containment="true"/>
@@ -205,4 +219,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecPersistable" abstract="true" interface="true"/>
 </ecore:EPackage>
