@@ -89,10 +89,25 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InterfaceLocked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMapping" eSuperTypes="#//Timestamp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractGUIDName" eSuperTypes="#//PersistentObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentName" eSuperTypes="#//AbstractGUIDName"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParamName" eSuperTypes="#//AbstractGUIDName"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProjectName" eSuperTypes="#//AbstractGUIDName"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractGUIDName" abstract="true" eSuperTypes="#//PersistentObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmGuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentName" eSuperTypes="#//AbstractGUIDName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmComponentType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmCreationContext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmParentProjectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HbmReferencedGuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParamName" eSuperTypes="#//AbstractGUIDName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParentProjectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectName" eSuperTypes="#//AbstractGUIDName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AUTConfig" eSuperTypes="#//PersistentObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="AUTCont" eSuperTypes="#//PersistentObject #//Wrapper"/>
   <eClassifiers xsi:type="ecore:EClass" name="AUTMain" eSuperTypes="#//PersistentObject"/>
