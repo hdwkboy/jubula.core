@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Jubula CDO Server (H2)" uid="org.eclipse.jubula.cdo.server" application="org.eclipse.emf.cdo.server.app" version="1.0" useFeatures="false" includeLaunchers="true">
+
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-console -debug</programArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.5 -Declipse.p2.mirrors=false -Declipse.p2.unsignedPolicy=allow -Xms1024m -Xmx2500m
+-Dnet4j.config=&quot;${project_loc:/org.eclipse.jubula.cdo.server}/config&quot;
+-Dorg.eclipse.emf.cdo.server.browser.port=11428
+-Dosgi.console.enable.builtin=true</vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+
+   <plugins>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.emf.cdo"/>
+      <plugin id="org.eclipse.emf.cdo.common"/>
+      <plugin id="org.eclipse.emf.cdo.server"/>
+      <plugin id="org.eclipse.emf.cdo.server.db"/>
+      <plugin id="org.eclipse.emf.cdo.server.net4j"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.servletbridge.extensionbundle" fragment="true"/>
+      <plugin id="org.eclipse.jubula.cdo.server"/>
+      <plugin id="org.eclipse.net4j"/>
+      <plugin id="org.eclipse.net4j.db"/>
+      <plugin id="org.eclipse.net4j.db.h2"/>
+      <plugin id="org.eclipse.net4j.tcp"/>
+      <plugin id="org.eclipse.net4j.util"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.h2"/>
+   </plugins>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
+   </configurations>
+
+</product>
